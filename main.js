@@ -24,7 +24,16 @@ var items = new vis.DataSet(issues);
 
 // create a timeline with some data
 var container = document.getElementById('visualization');
-var options = {};
+// specify options
+var options = {
+  stack: true,
+  // verticalScroll: true,
+  horizontalScroll: true,
+  zoomKey: 'ctrlKey',
+  maxHeight: 400,
+  start: new Date(),
+  end: new Date(1000*60*60*24*30 + (new Date()).valueOf()),
+};
 var timeline = new vis.Timeline(container);
 timeline.setOptions(options);
 timeline.setGroups(groups);
